@@ -1,26 +1,29 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles(() => ({
-  appBar: {
-    borderRadius: 15,
-    margin: "30px 0",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+export default makeStyles(theme => ({
+  container: {
+    marginTop: "30px",
   },
-  heading: {
-    color: "#4842f5",
-    fontFamily: "Tahoma",
+  modalDiv: {
+    position: "absolute",
+    maxWidth: 400,
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+    background: "#FFFFFF",
+    outline: "none",
   },
-  image: {
-    marginLeft: "15px",
+  modalCloseIcon: {
+    position: "absolute",
+    right: "5px",
+    top: "5px",
+    cursor: "pointer",
+    color: "#999999",
   },
-  addButton: {
-    color: "rgba(0,183,255, 1)",
-    justifyContent: "center",
-    backgroundColor: "white",
-    borderRadius: "10px",
-    fontWeight: "bolder",
+  [theme.breakpoints.down("sm")]: {
+    container: {
+      marginTop: "20px",
+      padding: 0,
+    },
   },
 }));

@@ -1,110 +1,71 @@
-import React, { useState, useEffect } from "react";
-import {
-  Container,
-  AppBar,
-  Typography,
-  Grow,
-  Grid,
-  Button,
-} from "@material-ui/core";
-import { useDispatch } from "react-redux";
-
-import Posts from "./components/Posts/Posts";
+import React, { useEffect } from "react";
+import { Modal } from "@material-ui/core";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCurrentId } from "./actions/currentSelected";
+import { CLOSE_FORM } from "./constants/actionTypes";
 import Form from "./components/Form/Form";
-import { getPosts } from "./actions/posts";
-import useStyles from "./styles";
-import memories from "./images/memories.png";
+import CloseIcon from "@material-ui/icons/Close";
+import { getUsers } from "./actions/users";
+import socket from "./socket";
+import { SET_ONLINE_USERS } from "./constants/actionTypes";
 
-import video from "../src/images/video2.mp4";
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Auth from "./components/Auth/Auth";
+import PostScreen from "./components/PostScreen/PostScreen";
+import Chat from "./components/Chat/Chat";
+import useStyles from "./styles";
 
 const App = () => {
-  const [currentId, setCurrentId] = useState(0);
-  const dispatch = useDispatch();
   const classes = useStyles();
+  const open = useSelector(state => state.formOpen);
+  const authData = useSelector(state => state.auth.authData);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
-
-  const [display, setDisplay] = useState(false);
-  // const [buttonText, setButtonText] = useState("Add a new Event?");
-
-  var handleDisplay = () => {
-    if (display == false) {
-      setDisplay(true);
-      // setButtonText("Event Added!");
-    } else {
-      setDisplay(false);
-      // setButtonText("Add a new Event?");
-    }
+  const closeForm = () => {
+    dispatch(clearCurrentId());
+    dispatch({ type: CLOSE_FORM });
   };
 
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("profile"))?.result;
+    if (user) {
+      socket.auth = { user };
+      socket.connect();
+    }
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [authData]);
+
+  socket.on("users", users => {
+    const self = JSON.parse(localStorage.getItem("profile"))?.result;
+    users = users.filter(user => user.email !== self.email);
+    dispatch({ type: SET_ONLINE_USERS, payload: users });
+  });
+
   return (
-    <Container maxWidth="lg">
-      <video
-        autoPlay
-        loop
-        muted
-        style={{
-          position: "fixed",
-          width: "100%",
-          height: "100%",
-          left: "50%",
-          top: "50%",
-          height: "100%",
-          objectFit: "cover",
-          transform: "translate(-50%,-50%)",
-          zIndex: "-1",
-          objectFit: "cover",
-        }}
-      >
-        <source src={video} type="video/mp4"></source>
-      </video>
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">
-          EVENT HUB
-        </Typography>
-        {/* <img className={classes.image} src={memories} alt="icon" height="60" /> */}
-      </AppBar>
-
-      <Grid container justify="center">
-        <Button
-          className={classes.addButton}
-          primary
-          variant="outlined"
-          onClick={handleDisplay}
-        >
-          Add a New Event?
-        </Button>
-      </Grid>
-
-      <br />
-      <br />
-      <Grow in>
-        <Container>
-          <Grid
-            container
-            style={{ display: "flex", justifyContent: "center" }}
-            justify="space-between"
-            alignItems="stretch"
-            spacing={3}
-          >
-            {display ? (
-              <Grid align="center" item xs={12} sm={4} container spacing={2}>
-                <Form currentId={currentId} setCurrentId={setCurrentId} />
-                <br />
-                <br />
-              </Grid>
-            ) : null}
-
-            {/* <Grid item xs={12} sm={7}> */}
-
-            {/* </Grid> */}
-          </Grid>
-          <Posts setCurrentId={setCurrentId} />
-        </Container>
-      </Grow>
-    </Container>
+    <BrowserRouter>
+      <Navbar />
+      <Modal open={open} onClose={() => closeForm()}>
+        <div className={classes.modalDiv}>
+          <CloseIcon className={classes.modalCloseIcon} onClick={() => closeForm()} />
+          <Form />
+        </div>
+      </Modal>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/auth" exact component={Auth} />
+        <Route path="/post/:id" exact component={PostScreen} />
+        <Route path="/chat" exact component={Chat} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 

@@ -2,10 +2,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles({
   media: {
-    height: 0,
-    paddingTop: "56.25%",
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    height: 300,
+    backgroundSize: "100% 100%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
     backgroundBlendMode: "darken",
+    cursor: "pointer",
   },
   border: {
     border: "solid",
@@ -18,7 +19,6 @@ export default makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     borderRadius: "15px",
-    height: "100%",
     position: "relative",
   },
   overlay: {
@@ -33,25 +33,35 @@ export default makeStyles({
     right: "20px",
     color: "white",
   },
+  postBody: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
   grid: {
     display: "flex",
   },
   details: {
     display: "flex",
     justifyContent: "space-between",
-    margin: "20px",
+    margin: "0 20px",
   },
   title: {
-    padding: "0 16px",
-    fontSize: "15px",
+    padding: "5px 16px 0 16px",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+  },
+  message: {
+    wordBreak: "break-word",
+  },
+  moreIcon: {
+    color: "grey",
+    cursor: "pointer",
   },
   cardActions: {
     padding: "0 16px 8px 16px",
     display: "flex",
     justifyContent: "space-between",
-  },
-  link: {
-    color: "blue",
-    fontFamily: "Times New Roman, Times, serif",
+    alignItems: "center",
   },
 });
