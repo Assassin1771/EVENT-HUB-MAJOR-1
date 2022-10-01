@@ -13,7 +13,8 @@ import {
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import memories from "../../images/memories.png";
+// import memories from "../../images/memories.png";
+import event from "../../images/event.png";
 import useStyles from "./styles";
 import { LOGOUT } from "../../constants/actionTypes";
 import { useTheme } from "@material-ui/core/styles";
@@ -33,7 +34,7 @@ function HideOnScroll(props) {
   );
 }
 
-const Navbar = props => {
+const Navbar = (props) => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const dispatch = useDispatch();
   const history = useHistory();
@@ -82,9 +83,9 @@ const Navbar = props => {
               {...headingProps}
               align="center"
             >
-              Memories
+              Event Hub
             </Typography>
-            <img className={classes.image} src={memories} alt="icon" />
+            <img className={classes.image} src={event} alt="icon" />
           </div>
           <Toolbar className={classes.toolbar}>
             {user ? (
@@ -101,7 +102,10 @@ const Navbar = props => {
                 </Tooltip>
                 <Tooltip title="Chat">
                   <Link to="/chat">
-                    <TelegramIcon color="primary" className={classes.chatIcon} />
+                    <TelegramIcon
+                      color="primary"
+                      className={classes.chatIcon}
+                    />
                   </Link>
                 </Tooltip>
                 <div className={classes.titleBar}>
@@ -128,7 +132,13 @@ const Navbar = props => {
                 </Button>
               </div>
             ) : (
-              <Button component={Link} to="/auth" variant="contained" color="primary" size="small">
+              <Button
+                component={Link}
+                to="/auth"
+                variant="contained"
+                color="primary"
+                size="small"
+              >
                 Sign In
               </Button>
             )}

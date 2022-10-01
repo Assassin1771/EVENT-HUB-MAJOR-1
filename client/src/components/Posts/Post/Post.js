@@ -20,15 +20,16 @@ import { deletePost, likePost } from "../../../actions/posts";
 import { setCurrentId } from "../../../actions/currentSelected";
 import useStyles from "./styles";
 import { OPEN_FORM } from "../../../constants/actionTypes";
+import Posts from "../Posts";
 
-const Post = ({ post }) => {
+const Post = ({ post, eventName }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
 
   const Likes = () => {
     if (post.likes.length > 0) {
-      return post.likes.find(like => like === user?.result?.email) ? (
+      return post.likes.find((like) => like === user?.result?.email) ? (
         <>
           <ThumbUpAltIcon fontSize="small" />
           &nbsp;
@@ -72,19 +73,31 @@ const Post = ({ post }) => {
       </Link>
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
-        <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+        <Typography varian t="body2">
+          {moment(post.createdAt).fromNow()}
+        </Typography>
       </div>
       {user?.result?.email === post?.creator && (
         <div className={classes.overlay2}>
           <Tooltip title="Edit Post">
-            <Button style={{ color: "white" }} size="small" onClick={handleEdit}>
+            <Button
+              style={{ color: "white" }}
+              size="small"
+              onClick={handleEdit}
+            >
               <MoreHorizIcon fontSize="default" />
             </Button>
           </Tooltip>
         </div>
       )}
       <div className={classes.postBody}>
-        <Typography noWrap className={classes.title} gutterBottom variant="h5" component="h2">
+        <Typography
+          noWrap
+          className={classes.title}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
           {post.title}
         </Typography>
         <CardContent>
@@ -98,8 +111,13 @@ const Post = ({ post }) => {
           </Typography>
         </CardContent>
         <div className={classes.details}>
-          <Typography variant="body2" color="textSecondary" component="h2">
-            {post.tags.map(tag => `#${tag} `)}
+          {/* <Typography variant="body2" color="textSecondary" component="h2">
+            {post.tags.map((tag) => `#${tag} `)}
+          </Typography> */}
+          <Typography>
+            <a href={post.link} target="_blank" rel="noreferrer">
+              Visit Event
+            </a>
           </Typography>
         </div>
         <CardActions className={classes.cardActions}>
@@ -117,7 +135,11 @@ const Post = ({ post }) => {
             </Button>
           </Link>
           {user?.result?.email === post?.creator && (
-            <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => dispatch(deletePost(post._id))}
+            >
               <DeleteIcon fontSize="small" /> Delete
             </Button>
           )}

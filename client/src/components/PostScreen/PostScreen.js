@@ -31,7 +31,7 @@ const PostScreen = ({ history, match }) => {
   const [emojiDrawer, setEmojiDrawer] = useState(false);
   const dispatch = useDispatch();
   const classes = useStyles();
-  const post = useSelector(state => state.currentSelected.currentPost);
+  const post = useSelector((state) => state.currentSelected.currentPost);
   const id = match.params.id;
   useEffect(() => {
     dispatch(setCurrentId(id));
@@ -41,7 +41,7 @@ const PostScreen = ({ history, match }) => {
 
   const Likes = () => {
     if (post.likes.length > 0) {
-      return post.likes.find(like => like === user?.result?.email) ? (
+      return post.likes.find((like) => like === user?.result?.email) ? (
         <>
           <ThumbUpAltIcon fontSize="small" />
           &nbsp;
@@ -73,7 +73,9 @@ const PostScreen = ({ history, match }) => {
 
   const handleComment = async () => {
     if (commentBody !== "") {
-      await dispatch(commentPost(post._id, { body: commentBody, name: user.result.name }));
+      await dispatch(
+        commentPost(post._id, { body: commentBody, name: user.result.name })
+      );
       setCommentBody("");
       await dispatch(getPost(id));
       var middleContainer = document.getElementById("middle");
@@ -125,36 +127,64 @@ const PostScreen = ({ history, match }) => {
               <div>
                 <div className={classes.profile}>
                   <div style={{ display: "flex" }}>
-                    <Avatar className={classes.avatar}>{post.name.charAt(0)}</Avatar>
+                    <Avatar className={classes.avatar}>
+                      {post.name.charAt(0)}
+                    </Avatar>
                     <Typography className={classes.userName} variant="h6">
                       {post.name}
                     </Typography>
                   </div>
-                  <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+                  <Typography variant="body2">
+                    {moment(post.createdAt).fromNow()}
+                  </Typography>
                 </div>
                 <hr className={classes.horizontal} />
                 <div id="middle" className={classes.middleContainer}>
-                  <Typography className={classes.title} gutterBottom variant="h5" component="h2">
+                  <Typography
+                    className={classes.title}
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                  >
                     {post.title}
                   </Typography>
                   <CardContent>
-                    <Typography className={classes.message} variant="body2" component="p">
+                    <Typography
+                      className={classes.message}
+                      variant="body2"
+                      component="p"
+                    >
                       {post.message}
                     </Typography>
                   </CardContent>
+                  <CardContent>
+                    <Typography
+                      className={classes.message}
+                      variant="body2"
+                      component="p"
+                    >
+                      <a href={post.link} target="_blank" rel="noreferrer">
+                        VISIT EVENT
+                      </a>
+                    </Typography>
+                  </CardContent>
                   <div className={classes.details}>
-                    <Typography variant="body2" color="textSecondary" component="h2">
-                      {post.tags.map(tag => `#${tag} `)}
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="h2"
+                    >
+                      {post.tags.map((tag) => `#${tag} `)}
                     </Typography>
                   </div>
                   <div>
                     <hr className={classes.horizontal} />
-                    <Typography style={{ padding: "0 5px" }} variant="h5">
-                      comments({post.comments.length})
+                    <Typography style={{ padding: "0 5px" }} variant="h6">
+                      Comments ({post.comments.length})
                     </Typography>
                   </div>
                   <div style={{ padding: "5px" }}>
-                    {post.comments.map(comment => (
+                    {post.comments.map((comment) => (
                       <div
                         key={comment._id}
                         style={{
@@ -163,14 +193,21 @@ const PostScreen = ({ history, match }) => {
                           padding: "2px 0",
                         }}
                       >
-                        <Avatar className={classes.avatarComment} alt={comment.name}>
+                        <Avatar
+                          className={classes.avatarComment}
+                          alt={comment.name}
+                        >
                           {comment.name.charAt(0)}
                         </Avatar>
                         <p style={{ margin: 0, padding: "3px 0 0 0" }}>
-                          <span style={{ color: "#484848", fontWeight: "bold" }}>
+                          <span
+                            style={{ color: "#484848", fontWeight: "bold" }}
+                          >
                             {comment.name}
                           </span>{" "}
-                          <span style={{ wordBreak: "break-word" }}>{comment.body}</span>
+                          <span style={{ wordBreak: "break-word" }}>
+                            {comment.body}
+                          </span>
                         </p>
                       </div>
                     ))}
@@ -224,10 +261,15 @@ const PostScreen = ({ history, match }) => {
                       style={{ padding: "2px 0", width: "77%" }}
                       placeholder="Add a comment..."
                       value={commentBody}
-                      onChange={e => setCommentBody(e.target.value)}
-                      onKeyPress={event => (event.key === "Enter" ? handleComment() : null)}
+                      onChange={(e) => setCommentBody(e.target.value)}
+                      onKeyPress={(event) =>
+                        event.key === "Enter" ? handleComment() : null
+                      }
                     />
-                    <Button disabled={commentBody === ""} onClick={handleComment}>
+                    <Button
+                      disabled={commentBody === ""}
+                      onClick={handleComment}
+                    >
                       Post
                     </Button>
                   </div>

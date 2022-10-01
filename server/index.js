@@ -100,7 +100,7 @@ io.on("connection", (socket) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Memories API");
+  res.send("Welcome to Event Hub");
 });
 
 const PORT = process.env.PORT || 5000;
