@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-const URL = "http://localhost:5000";
+const URL = "http://localhost:8080";
 const connectionOptions = {
   "force new connection": true,
   reconnectionAttempts: "Infinity",

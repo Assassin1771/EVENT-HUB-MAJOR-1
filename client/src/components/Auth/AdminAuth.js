@@ -13,7 +13,7 @@ import { signin, signup } from "../../actions/auth";
 
 const initialState = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" };
 
-const Auth = () => {
+const AdminAuth = () => {
   const [formData, setFormData] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
   const dispatch = useDispatch();
@@ -26,14 +26,14 @@ const Auth = () => {
 
   useEffect(() => {
     if (profile) {
-      history.push("/");
+      history.push("/analytics");
     }
   }, []);
 
-  const switchMode = () => {
-    setIsSignup(prevIsSignup => !prevIsSignup);
-    setShowPassword(false);
-  };
+  // const switchMode = () => {
+  //   setIsSignup(prevIsSignup => !prevIsSignup);
+  //   setShowPassword(false);
+  // };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -45,17 +45,18 @@ const Auth = () => {
     }
   };
 
-  const googleSuccess = async res => {
-    const result = res?.profileObj;
-    const token = res?.tokenId;
+  // const googleSuccess = async res => {
+  //   const result = res?.profileObj;
+  //   const token = res?.tokenId;
 
-    try {
-      dispatch({ type: AUTH, data: { result, token } });
-      history.push("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   try {
+  //     dispatch({ type: AUTH, data: { result, token } });
+  //     history.push("/analytics");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  
 
   const googleError = () => alert("Google Sign In was unsuccessful. Try again later");
 
@@ -74,18 +75,7 @@ const Auth = () => {
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            {isSignup && (
-              <>
-                <Input
-                  name="firstName"
-                  label="First Name"
-                  handleChange={handleChange}
-                  autoFocus
-                  half
-                />
-                <Input name="lastName" label="Last Name" handleChange={handleChange} half />
-              </>
-            )}
+        
             <Input name="email" label="Email Address" handleChange={handleChange} type="email" />
             <Input
               name="password"
@@ -94,54 +84,22 @@ const Auth = () => {
               type={showPassword ? "text" : "password"}
               handleShowPassword={handleShowPassword}
             />
-            {isSignup && (
-              <Input
-                name="confirmPassword"
-                label="Repeat Password"
-                handleChange={handleChange}
-                type="password"
-              />
-            )}
+        
           </Grid>
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="Secondary"
             className={classes.submit}
           >
-            {isSignup ? "Sign Up" : "Sign In"}
+            { "Sign In"}
           </Button>
-          <GoogleLogin
-            clientId="105990397069-29lljmqd17mf4rkbsnvd30knldmqlit2.apps.googleusercontent.com"
-            render={renderProps => (
-              <Button
-                className={classes.googleButton}
-                color="primary"
-                fullWidth
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
-                startIcon={<Icon />}
-                variant="contained"
-              >
-                Google Sign In
-              </Button>
-            )}
-            onSuccess={googleSuccess}
-            onFailure={googleError}
-            cookiePolicy="single_host_origin"
-          />
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Button onClick={switchMode}>
-                {isSignup ? "Already have an account? Sign in" : "Don't have an account? Sign Up"}
-              </Button>
-            </Grid>
-          </Grid>
+
         </form>
       </Paper>
     </Container>
   );
 };
 
-export default Auth;
+export default AdminAuth;

@@ -13,14 +13,14 @@ const Chat = ({ history }) => {
   }, []);
   return (
     <Grow in>
-      <div style={{ backgroundColor: "#FFFFFF" }}>
-        {/* <div style={{ backgroundColor: "#FFFFFF", overflow: "hidden" }}> */}
+      {/* <div style={{ backgroundColor: "#FFFFFF" }}> */}
+        <div style={{ backgroundColor: "black", overflow: "hidden" }}>
         <Grid
           container
           className="chatHeight"
-          style={{ alignItems: "stretch", backgroundColor: "#00A4E5" }}
+          style={{ alignItems: "stretch", backgroundColor: "#06283D" }}
         >
-          <Grid item sm={3} xs={12} style={{ borderRight: "1px solid #00A4E5" }}>
+          <Grid item sm={3} xs={12} style={{ borderRight: "1px solid #06283D" }}>
             <Chats />
           </Grid>
           <Grid item sm={9} xs={12}>

@@ -80,7 +80,8 @@ const MessageContainer = () => {
           <Picker disableSearchBar={true} onEmojiClick={onEmojiClick} />
         </div>
       </div>
-      <div style={{ display: "flex", alignItems: "center", backgroundColor: "#FFFFFF" }}>
+      <div style={{ display: "flex", alignItems: "center",   backgroundImage:`url(https://wallpaper.dog/large/20525674.jpg)`,
+    backgroundSize:"contain", }}>
         <Tooltip title="Insert an emoji">
           <SentimentSatisfiedIcon
             size="large"

@@ -103,11 +103,11 @@ app.get("/", (req, res) => {
   res.send("Welcome to Event Hub");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 mongoose
   .connect(
-    "mongodb+srv://assassin1771:assassin1771@cluster0.kwwcd.mongodb.net/?retryWrites=true&w=majority",
+    process.env.CONNECTION_URL,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Container, Grow, Grid, Typography } from "@material-ui/core";
+import { Container, Grow, Grid, Typography,Paper } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import Carousel from "react-material-ui-carousel";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from 'react-bootstrap/Carousel';
 // import Carousel from "react-bootstrap/Carousel";
 
 import event from "../../images/event.png";
 import amazon from "../../images/amazon.png";
 import cf from "../../images/cf.webp";
 import cs from "../../images/cs.png";
-
+import lt from "../../images/leetcode.jpeg";
 import {
   clearCurrentId,
   clearPost,
@@ -27,6 +28,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const classes = useStyles();
+  
 
   useEffect(() => {
     dispatch(getPosts());
@@ -67,112 +69,100 @@ const Home = () => {
     setEvent(e.target.value);
     console.log("value is:", e.target.value);
   };
+  const [index, setIndex] = useState(0);
 
-  return (
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+  return (  
     <Container maxWidth="lg" className={classes.container}>
-      <h1 align="center" style={{ color: "white" }}>
+            <h1 align="center" style={{ color: "white" }}>
         {" "}
         TRENDING EVENTS
       </h1>
       <Carousel index={activeChild} autoPlay={true} navButtonsAlwaysVisible>
-        {/* {items.map((i) => {
-              return ( */}
-        <Container
-          style={{
-            height: "300px",
-            backgroundColor: "white",
-            backgroundImage: `url(${amazon})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <Typography align="center" style={{ color: "black" }}>
-            Amazon
-          </Typography>
-          <Typography align="center" style={{ color: "black" }}>
-            Hiring Challenge
-          </Typography>
-        </Container>
+    <Carousel.Item>
+      <a href="https://www.codechef.com">
+      <img
+        className="d-block w-100"
+        src="https://media.geeksforgeeks.org/wp-content/uploads/20220427142321/TopWebsitesForCodingChallengesCompetitions.jpg"
+        alt="First slide"
+        height="600px"
+      />
+</a>
+    </Carousel.Item>
+    <Carousel.Item>
+    <a href="https://atcoder.jp/">
+      <img
+        className="d-block w-100"
+        src="https://img.atcoder.jp/zone2021/7b005dd8b143aec06f75077c226ff376.png"
+        alt="Second slide"
+        height="600px"
+      />
+</a>
 
-        <Container
-          style={{
-            height: "300px",
-            backgroundColor: "white",
-            backgroundImage: `url(${cf})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <Typography align="center" style={{ color: "black" }}>
-            Codeforces
-          </Typography>
-          <Typography align="center" style={{ color: "black" }}>
-            Programming Contest
-          </Typography>
-        </Container>
-
-        <Container
-          style={{
-            height: "300px",
-            backgroundColor: "white",
-            backgroundImage: `url(${cs})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            imageHeight: "10px",
-          }}
-        >
-          <Typography align="center" style={{ color: "black" }}>
-            Codestudio
-          </Typography>
-          <Typography align="center" style={{ color: "black" }}>
-            Coding Contest
-          </Typography>
-        </Container>
-
-        {/* );
-            })} */}
-      </Carousel>
-
-      {/* <Carousel>
-        {items.map((item) => {
-          <Container>
-            <p>abc</p>
-          </Container>;
-
-          <p>damsdas</p>;
-        })}
-
-        <Typography>sdmflsdfmls</Typography>
-        <Typography>fmsdofnsdkfdsn</Typography>
-      </Carousel> */}
-
-      {/* <h1 align="center" style={{ color: "white" }}>
-        {" "}
-        TRENDING EVENTS
-      </h1>
-
-      <Carousel
-        index={activeChild} // <-- This controls the activeChild
-        autoPlay={false} // <-- You probaly want to disable this for our purposes
-        navButtonsAlwaysVisible
-      >
-        {items.map((i) => {
-          return (
-            <Container style={{ height: "300px", backgroundColor: "white" }}>
-              <Typography align="center" key={i}>
-                {i.name}
-              </Typography>
-              <Typography align="center">{i.description}</Typography>
-            </Container>
-          );
-        })}
-      </Carousel> */}
-
-      {/* <input type="text" onChange={handleEventName}></input> */}
-      {/* <button onClick={handleEvent}>SUBMIT</button> */}
-
-      {/* <p>{console.log(event)}dasd</p> */}
-
+    </Carousel.Item>
+    <Carousel.Item>
+    <a href="https://www.codechef.com/CHIL2020">
+      <img
+        className="d-block w-100"
+        src="https://cdn.codechef.com/download/small-banner/CHIL2020/1596948867.jpg"
+        alt="Third slide"
+        height="600px"
+      />
+</a>
+    </Carousel.Item>
+    <Carousel.Item>
+    <a href="https://www.hackerrank.com/dtcc-codeathon-challenge">
+      <img
+        className="d-block w-100"
+        src="https://hrcdn.net/s3_pub/istreet-assets/-Nl0DJkFlHJFO3Rl-FuwOQ/Rd%2002-26918_HackerRank%20Code-A-Thon_Twitter_1024x512.jpg"
+        alt="Third slide"
+        height="600px"
+      />
+</a>
+    </Carousel.Item>
+    <Carousel.Item>
+    <a href="https://leetcode.com/">
+      <img
+        className="d-block w-100"
+        src="https://assets.leetcode.com/static_assets/marketing/%E5%B9%BF%E5%91%8A_Banner.png"
+        alt="Third slide"
+        height="600px"
+      />
+</a>
+    </Carousel.Item>
+    <Carousel.Item>
+    <a href="https://leetcode.com/contest/weekly-contest-315/">
+      <img
+        className="d-block w-100"
+        src="https://pbs.twimg.com/media/FGw88HCVQAQpnxt.png"
+        alt="Third slide"
+        height="600px"
+      />
+</a>
+    </Carousel.Item>
+    <Carousel.Item>
+    <a href="https://leetcode.com/contest/biweekly-contest-89/">
+      <img
+        className="d-block w-100"
+        src="https://pbs.twimg.com/media/FKUoi_VUUAMKBcv.png"
+        alt="Third slide"
+        height="600px"
+      />
+</a>
+    </Carousel.Item>
+    <Carousel.Item>
+    <a href="https://leetcode.com/">
+      <img
+        className="d-block w-100"
+        src={lt}
+        alt="Third slide"
+        height="600px"
+      />
+</a>
+    </Carousel.Item>
+  </Carousel> 
       <Grow in>
         <Container>
           <Grid

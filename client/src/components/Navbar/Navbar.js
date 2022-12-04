@@ -132,15 +132,32 @@ const Navbar = (props) => {
                 </Button>
               </div>
             ) : (
-              <Button
+              <div>
+<Button
                 component={Link}
-                to="/auth"
+                to="/userauth"
                 variant="contained"
                 color="primary"
                 size="small"
               >
-                Sign In
+                User
               </Button>
+              
+<spacer/> <spacer/> <spacer/> 
+              <Button
+                component={Link}
+                to="/adminauth"
+                variant="contained"
+                color="primary"
+                size="small"
+              >
+                Admin 
+              </Button>
+
+              </div>
+              
+             
+              
             )}
           </Toolbar>
         </AppBar>

@@ -4,6 +4,18 @@ export default makeStyles(theme => ({
   container: {
     marginTop: "30px",
   },
+  fgh:{
+    color:"white",
+    marginTop:"0cm",
+    marginLeft:".3cm",
+   
+  },
+  ghj:{
+    margintop:"-30cm"
+  },
+  qwe:{
+marginTop:"-9cm"
+  },
   [theme.breakpoints.down("sm")]: {
     container: {
       marginTop: "20px",

@@ -8,8 +8,9 @@ export default makeStyles(theme => ({
     justifyContent: "space-around",
   },
   heading: {
-    color: "#00A4E5",
+    color:"rgb(225, 71, 97)",
     textDecoration: "none",
+    // FontFace:{Shadows Into Light},
     fontWeight: "bold",
   },
   image: {
@@ -68,7 +69,13 @@ export default makeStyles(theme => ({
       alignItems: "center",
     },
     heading: {
-      marginLeft: "5px",
+  marginLeft: "5px",
+  FontFace: "Shadows Into Light ,cursive",
+
+  fontSize:"55px",
+   fontWeight:"900",
+    color: "rgb(225,49, 90)",
+   textDecoration:"none"
     },
     toolbar: {
       width: "100%",

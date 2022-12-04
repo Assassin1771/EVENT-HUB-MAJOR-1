@@ -6,10 +6,12 @@ export default makeStyles(theme => ({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
+    backgroundImage:`url(https://wallpaper.dog/large/20525674.jpg)`,
+    backgroundSize:"contain"
+    
   },
   afterChat: {
-    backgroundColor: "#00A4E5",
+    backgroundColor: "#393E46",
     padding: "10px",
     display: "flex",
     alignItems: "center",
@@ -21,11 +23,12 @@ export default makeStyles(theme => ({
     color: "white",
   },
   messagesContainer: {
-    backgroundColor: "#FFFFFF",
+    backgroundImage:`url(https://wallpaper.dog/large/20525674.jpg)`,
+    backgroundSize:"contain",
     overflow: "auto",
   },
   sendButton: {
-    backgroundColor: "#00A4E5",
+    backgroundColor: " #06283D",
     color: "white",
     fontSize: "15px",
     fontWeight: "bold",
@@ -33,7 +36,7 @@ export default makeStyles(theme => ({
     cursor: "pointer",
     outline: "none",
     "&:hover": {
-      backgroundColor: "#00A4E5",
+      backgroundColor: " #06283D",
     },
   },
 }));

@@ -12,14 +12,34 @@ import { SET_ONLINE_USERS } from "./constants/actionTypes";
 
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
-import Auth from "./components/Auth/Auth";
+import UserAuth from "./components/Auth/UserAuth";
+import AdminAuth from "./components/Auth/AdminAuth";
 import PostScreen from "./components/PostScreen/PostScreen";
 import Chat from "./components/Chat/Chat";
 import useStyles from "./styles";
 import Event from "./components/Event/Event";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
+import Footer from "./components/Footer/Footer.js"
+import Analytics from "./components/Analytics/Analytics.js"
+import UserStats from "./components/Xtras/UserStats.js"
+import Timeline from "./components/Xtras/Timeline.js"
+import UserSidenav from "./components/Xtras/UserSidenav.js"
+import Userperforma from "./components/Xtras/Userperforma";
+import Graphs from "./components/Xtras/Graphs";
 
+import UserActivity from "./components/Xtras/UserActivity.js";
+import PlatformStats from "./components/Xtras/PlatformStats.js";
+import Favourite from "./components/Xtras/Favourite.js";
+import PlatformActivity from "./components/Xtras/PlatformActivity.js"
+import UserPerformance from "./components/Xtras/UserPerformance";
+
+import Analyse from "./components/Xtras/Analyse";
+
+
+
+
+import './scss/style.scss'
 const App = () => {
   const classes = useStyles();
   const open = useSelector((state) => state.formOpen);
@@ -54,8 +74,10 @@ const App = () => {
   });
 
   return (
+   
     <BrowserRouter>
-      <Navbar />
+   
+    <Navbar />
       <Modal open={open} onClose={() => closeForm()}>
         <div className={classes.modalDiv}>
           <CloseIcon
@@ -64,17 +86,40 @@ const App = () => {
           />
           <Form />
         </div>
-      </Modal>
+      </Modal>    
       <Switch>
         <Route path="/" exact component={Event} />
         <Route path="/home" exact component={Home} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/about" exact component={About} />
-        <Route path="/auth" exact component={Auth} />
+        <Route path="/userauth" exact component={UserAuth} />
+        <Route path="/adminauth" exact component={AdminAuth} />
+        <Route path="/userstats" exact component={UserStats} />
+        <Route path="/timeline" exact component={Timeline} />
+        {/* <Route path="/adminauth" exact component={AdminAuth} /> */}
+        <Route path="/usersidenav" exact component={UserSidenav} />
+        <Route path="/userperforma" exact component={Userperforma} />
+        <Route path="/analytics" exact component={Analytics} />
+
+        <Route path="/favourite" exact component={Favourite} />
+        <Route path="/useractivity" exact component={UserActivity} />
+        <Route path="/platformstats" exact component={PlatformStats} />
+        <Route path="/platformactivity" exact component={PlatformActivity} />
+        <Route path="/userperformance" exact component={UserPerformance} />
+        <Route path="/analyse" exact component={Analyse} />
+
         <Route path="/post/:id" exact component={PostScreen} />
         <Route path="/chat" exact component={Chat} />
+        <Route path="/graphs" exact component={Graphs} />
+
       </Switch>
+      
+     
+      <Footer/>
+     
+     
     </BrowserRouter>
+   
   );
 };
 
