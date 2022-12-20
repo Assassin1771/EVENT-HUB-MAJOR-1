@@ -26,7 +26,7 @@ const UserAuth = () => {
 
   useEffect(() => {
     if (profile) {
-      history.push("/analytics");
+      history.push("/");
     }
   }, []);
 
@@ -51,7 +51,7 @@ const UserAuth = () => {
 
     try {
       dispatch({ type: AUTH, data: { result, token } });
-      history.push("/");
+      history.push("/userperforma");
     } catch (error) {
       console.log(error);
     }

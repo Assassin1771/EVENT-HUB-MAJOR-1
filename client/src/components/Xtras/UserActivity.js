@@ -84,12 +84,63 @@ const UserActivity = () => {
   return (
     <div>
     <UserSidenav/>
-    <div  className="wrapper d-flex flex-column min-vh-100 ">
-   
-      <div style={{marginTop:"-21cm"}} className="body flex-grow-1 px-3">
+    <Container style={{marginLeft:"6.5cm"}}  className="wrapper d-flex flex-column min-vh-100 ">
+    <CCol xs={11}>
+       <br />
       
+         <DocsCallout
+           name="Chart"
+           href="components/chart"
+           content="Content Goes Here"
+         /><br />
+ 
+       </CCol>
+      <div className="body flex-grow-1 px-3">
+      <CRow>
+ 
+ <CCol xs={6}>
+   <CCard className="mb-4">
+     <CCardHeader>Site Traffic </CCardHeader>
+     <CCardBody>
+       <CChartBar
+         data={{
+           labels: ['Codeforces', 'Codechef', 'Leetcode', 'AtCoder', 'Hackerrank', 'Hackerearth', 'CSES'],
+           datasets: [
+             {
+               label: 'Events',
+               backgroundColor: ['purple', 'brown', 'yellow', 'red', 'lightgreen', 'skyblue', 'pink'],
+               data:[random(), random(), random(), random(), random(), random(), random()],
+             },
+            
+           ],
+         }}
+         labels="CodingPlatform"
+       />
+     </CCardBody>
+   </CCard>
+ </CCol>
+
+ <CCol xs={5}>
+   <CCard className="mb-4">
+     <CCardHeader>Topic Specific Stats</CCardHeader>
+     <CCardBody>
+       <CChartDoughnut
+         data={{
+           labels: ['Codeforces', 'Codechef', 'Leetcode', 'AtCoder', 'Hackerrank', 'Hackerearth', 'CSES'],
+        datasets: [
+             {
+               backgroundColor: ['purple', 'brown', 'yellow', 'red', 'lightgreen', 'skyblue', 'pink'],
+               data: [55, 45, 67, 78, 20, 11, 69],
+             },
+           ],
+         }}
+       />
+     </CCardBody>
+   </CCard>
+ </CCol>
+ </CRow>
       </div>
-    </div>
+    </Container>
   </div>
   )
 }

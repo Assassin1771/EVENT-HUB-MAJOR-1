@@ -62,8 +62,8 @@ import {
   import WorkIcon from '@material-ui/icons/Work';
   import { CCallout, CLink } from '@coreui/react'
   import  DocsCallout  from '../Analytics/DocsCallout.js'
-  import '../Analytics/Analytics.css'
-
+  // import '../Analytics/Analytics.css'
+import './Analyse.css'
 
   import { CCollapse ,CBadge} from '@coreui/react'
   import { CSmartTable } from '@coreui/react-pro'
@@ -78,10 +78,19 @@ const Analyse = () => {
   return (
     <div>
     <UserSidenav/>
-    <div  className="wrapper d-flex flex-column min-vh-100 ">
-   
-      <div style={{marginTop:"-111cm"}} className="body flex-grow-1 px-3">
-      <CCol xs={12}>
+    <Container class="new6" style={{marginLeft:"6.5cm"}}  className="wrapper d-flex flex-column min-vh-100 ">
+    <CCol xs={11}>
+       <br />
+      
+         <DocsCallout
+           name="Chart"
+           href="components/chart"
+           content="Graph shows your weakness/ areas you need to work on"
+         /><br />
+ 
+       </CCol>
+      <Container style={{marginLeft:"2.5cm"}} className="body flex-grow-1 px-3">
+      <CCol xs={9}>
          <CCard className="mb-4">
            <CCardHeader>Domain Specific Stats</CCardHeader>
            <CCardBody>
@@ -93,9 +102,9 @@ const Analyse = () => {
                      label: 'User',
                      backgroundColor: 'rgba(220, 220, 220, 0.2)',
                      borderColor: 'purple',
-                     pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-                     pointBorderColor: '#fff',
-                     pointHighlightFill: '#fff',
+                     pointBackgroundColor: 'black',
+                     pointBorderColor: 'black',
+                     pointHighlightFill: 'black',
                      pointHighlightStroke: 'rgba(220, 220, 220, 1)',
                      data: [random(), random(), random(), random(), random(), random(), random(),random()],
                    },
@@ -105,8 +114,8 @@ const Analyse = () => {
            </CCardBody>
          </CCard>
        </CCol>
-      </div>
-    </div>
+      </Container>
+    </Container>
   </div>
   )
 }

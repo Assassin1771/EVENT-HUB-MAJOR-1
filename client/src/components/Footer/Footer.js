@@ -8,8 +8,8 @@ import vd from "./void.png";
 
 const Footer = () => {
     return (
-        <div class="d-flex flex-column min-vh-100 xyz">
-        <br/>  <br/> <br/>
+        <div class="d-flex flex-column ">
+       <br/>  <br/> <br/><br/>  <br/><br/> <br/><br/> <br/>
         
         <footer class="footer-distributed mt-auto">
             <div class="footer-left">

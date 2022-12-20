@@ -5,7 +5,7 @@ import { CSmartTable } from '@coreui/react-pro'
 
 import Sidenav from './Sidenav.js'
 
-
+import './UserStats.css'
 
 import { useSelector, useDispatch } from 'react-redux'
 import {Container, Paper} from "@material-ui/core";
@@ -88,7 +88,7 @@ const UserStats = () => {
         _style: { width: '40%' },
         _props: { color: 'primary', className: 'fw-semibold' },
       },
-      'registered',
+      'Visit',
       { key: 'role', filter: false, sorter: false, _style: { width: '10%' } },
       { key: 'status', _style: { width: '20%' } },
       {
@@ -101,82 +101,82 @@ const UserStats = () => {
       },
     ]
     const usersData = [
-      { id: 0, name: 'John Doe', registered: '2022/01/01', role: 'Guest', status: 'Pending' },
+      { id: 0, name: 'Abhishek', Visit: '2022/01/01', role: 'Guest', status: 'Active' },
       {
         id: 1,
-        name: 'Samppa Nori',
-        registered: '2022/01/01',
+        name: 'Abhinav',
+        Visit: '2022/01/01',
         role: 'Member',
-        status: 'Active',
+        status: 'Banned',
         _props: { color: 'primary', align: 'middle' },
       },
       {
         id: 2,
-        name: 'Estavan Lykos',
-        registered: '2022/02/07',
-        role: 'Staff',
-        status: 'Banned',
+        name: 'Shreya',
+        Visit: '2022/02/07',
+        role: 'Member',
+        status: 'Active',
         _cellProps: { all: { className: 'fw-semibold' }, name: { color: 'info' } },
       },
-      { id: 3, name: 'Chetan Mohamed', registered: '2022/02/07', role: 'Admin', status: 'Inactive' },
+      {
+        id: 22,
+        name: 'Abhishek Thakur',
+        Visit: '2022/02/07',
+        role: 'Member',
+        status: 'Active',
+        _cellProps: { all: { className: 'fw-semibold' }, name: { color: 'info' } },
+      },
+      { id: 3, name: 'Kartike', Visit: '2022/02/07', role: 'Admin', status: 'Active' },
       {
         id: 4,
-        name: 'Derick Maximinus',
-        registered: '2022/03/19',
-        role: 'Member',
-        status: 'Pending',
+        name: 'Tushar',
+        Visit: '2022/03/19',
+        role: 'Admin',
+        status: 'Active',
       },
-      { id: 5, name: 'Friderik Dávid', registered: '2022/01/21', role: 'Staff', status: 'Active' },
-      { id: 6, name: 'Yiorgos Avraamu', registered: '2022/01/01', role: 'Member', status: 'Active' },
+      { id: 5, name: 'Riya', Visit: '2022/01/21', role: 'Admin', status: 'Active' },
+      { id: 6, name: 'Yogi', Visit: '2022/01/01', role: 'Guest', status: 'Active' },
       {
         id: 7,
-        name: 'Avram Tarasios',
-        registered: '2022/02/07',
-        role: 'Staff',
+        name: 'Shwetank',
+        Visit: '2022/02/07',
+        role: 'Member',
         status: 'Banned',
         _props: { color: 'warning', align: 'middle' },
       },
-      { id: 8, name: 'Quintin Ed', registered: '2022/02/07', role: 'Admin', status: 'Inactive' },
-      { id: 9, name: 'Enéas Kwadwo', registered: '2022/03/19', role: 'Member', status: 'Pending' },
-      { id: 10, name: 'Agapetus Tadeáš', registered: '2022/01/21', role: 'Staff', status: 'Active' },
-      { id: 11, name: 'Carwyn Fachtna', registered: '2022/01/01', role: 'Member', status: 'Active' },
-      { id: 12, name: 'Nehemiah Tatius', registered: '2022/02/07', role: 'Staff', status: 'Banned' },
-      { id: 13, name: 'Ebbe Gemariah', registered: '2022/02/07', role: 'Admin', status: 'Inactive' },
+      { id: 8, name: 'Ishaan', Visit: '2022/02/07', role: 'Member', status: 'Inactive' },
+      { id: 9, name: 'Lakshay', Visit: '2022/03/19', role: 'Member', status: 'Pending' },
+      { id: 10, name: 'Varun Mittal', Visit: '2022/01/21', role: 'Member', status: 'Active' },
+      { id: 11, name: 'Radhey', Visit: '2022/01/01', role: 'Member', status: 'Active' },
+      { id: 12, name: 'Anushka', Visit: '2022/02/07', role: 'Member', status: 'Banned' },
+      { id: 13, name: 'Om', Visit: '2022/02/07', role: 'Member', status: 'Inactive' },
       {
         id: 14,
-        name: 'Eustorgios Amulius',
-        registered: '2022/03/19',
+        name: 'Ajay',
+        Visit: '2022/03/19',
         role: 'Member',
         status: 'Pending',
       },
-      { id: 15, name: 'Leopold Gáspár', registered: '2022/01/21', role: 'Staff', status: 'Active' },
-      { id: 16, name: 'Pompeius René', registered: '2022/01/01', role: 'Member', status: 'Active' },
-      { id: 17, name: 'Paĉjo Jadon', registered: '2022/02/07', role: 'Staff', status: 'Banned' },
+      { id: 15, name: 'Ayush', Visit: '2022/01/21', role: 'Member', status: 'Active' },
+      { id: 16, name: 'Priya', Visit: '2022/01/01', role: 'Guest', status: 'Active' },
+      { id: 17, name: 'Parul', Visit: '2022/02/07', role: 'Member', status: 'Banned' },
       {
         id: 18,
-        name: 'Micheal Mercurius',
-        registered: '2022/02/07',
-        role: 'Admin',
+        name: 'Manan',
+        Visit: '2022/02/07',
+        role: 'Guest',
         status: 'Inactive',
       },
       {
         id: 19,
-        name: 'Ganesha Dubhghall',
-        registered: '2022/03/19',
+        name: 'Ganesha ',
+        Visit: '2022/03/19',
         role: 'Member',
         status: 'Pending',
       },
-      { id: 20, name: 'Hiroto Šimun', registered: '2022/01/21', role: 'Staff', status: 'Active' },
-      { id: 21, name: 'Vishnu Serghei', registered: '2022/01/01', role: 'Member', status: 'Active' },
-      { id: 22, name: 'Zbyněk Phoibos', registered: '2022/02/07', role: 'Staff', status: 'Banned' },
-      { id: 23, name: 'Aulus Agmundr', registered: '2022/01/01', role: 'Member', status: 'Pending' },
-      {
-        id: 42,
-        name: 'Ford Prefect',
-        registered: '2001/05/25',
-        role: 'Alien',
-        status: "Don't panic!",
-      },
+      { id: 20, name: 'Hritesh', Visit: '2022/01/21', role: 'Member', status: 'Active' },
+      { id: 21, name: 'Vishnu ', Visit: '2022/01/01', role: 'Member', status: 'Active' },
+      
     ]
     const getBadge = (status) => {
       switch (status) {
@@ -204,13 +204,18 @@ const UserStats = () => {
     }
 
   return (
-<div>
+<div class="new4">
 <Sidenav/>
-<div className="wrapper d-flex flex-column min-vh-100 ">
-   
-   <div  style={{marginTop:"-113cm"}} className="body flex-grow-1 px-3">
-   <CCard className="mb-4">
- <CSmartTable
+<Container style={{marginLeft:"6.5cm"}}  className="wrapper d-flex flex-column min-vh-100 ">
+    <CCol xs={11}>
+       <br />
+      
+         <br />
+ 
+       </CCol>   
+   <div  className="body flex-grow-1 px-3">
+   <CCard  style={{width:"30cm"}} className="mb-4">
+ <CSmartTable 
     activePage={3}
     cleaner
     clickableRows
@@ -250,7 +255,7 @@ const UserStats = () => {
           <CCollapse visible={details.includes(item._id)}>
             <CCardBody>
               <h4>{item.username}</h4>
-              <p style={{color:'black'}} >User since: {item.registered}</p>
+              <p style={{color:'black'}} >User since: {item.Visit}</p>
             </CCardBody>
           </CCollapse>
         )
@@ -270,7 +275,7 @@ const UserStats = () => {
   </CCard>
    
    </div>
- </div>
+ </Container>
 
 
   </div>

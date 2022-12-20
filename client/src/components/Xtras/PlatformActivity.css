@@ -1,0 +1,38 @@
+#feedback-form-wrapper #floating-icon > button {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: rotate(-90deg) translate(50%, -50%);
+    transform-origin: right;
+  }
+  
+  #feedback-form-wrapper .rating-input-wrapper input[type="radio"] {
+    display: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  #feedback-form-wrapper .rating-input-wrapper input[type="radio"] ~ span {
+    cursor: pointer;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  #feedback-form-wrapper .rating-input-wrapper input[type="radio"]:checked ~ span {
+    background-color: #4261dc;
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  #feedback-form-wrapper .rating-labels > label{
+    font-size: 14px;
+      color: #777;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .vvv{
+    font-family:serif;
+    color: black;
+    font-size: large;
+  }
+  .xxx{
+    margin-bottom: -19cm;
+    height: 21cm;
+  }
+  .ddd{
+    margin-bottom: -8cm;
+  }

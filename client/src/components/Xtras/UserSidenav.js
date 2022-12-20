@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import {Nav} from "react-bootstrap";
 import { withRouter } from "react-router";
-import './Sidenav.css'
+import './UserSidenav.css'
 
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
@@ -23,49 +23,29 @@ const UserSidenav = () => {
     const sidebarShow = useSelector((state) => state.sidebarShow)
 
   return (
-    <div style={{height:"114cm"}} class="sidebar sidebar-show">
-    <ul class="sidebar-nav">
-      <li class="nav-title">STATISTICS</li>
-      <li class="nav-item">
-        <a class="nav-link" href="/userperforma">
-          <i class="nav-icon cil-speedometer"></i> Recommender
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/platformstats">
-          <i class="nav-icon cil-speedometer"></i> Platform Stats
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="/favourite">
-          <i class="nav-icon cil-speedometer"></i> Favourite Site
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/useractivity">
-          <i class="nav-icon cil-speedometer"></i> User Activity
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/platformactivity">
-          <i class="nav-icon cil-speedometer"></i> Platform Activity
-        </a>
-      </li>
-      
-      <li class="nav-item mt-auto">
-        <a class="nav-link nav-link-success" href="https://coreui.io">
-          <i class="nav-icon cil-cloud-download"></i> Download CoreUI</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-link-danger" href="https://coreui.io/pro/">
-          <i class="nav-icon cil-layers"></i> Try CoreUI
-          <strong>PRO</strong>
-        </a>
-      </li>
-    </ul>
-    {/* <button class="sidebar-toggler" type="button"></button> */}
-  </div>
+<div class="new7" id="sidebar-wrapper">
+  <ul className="sidebar-nav" style={{marginLeft: 0}}>
+    <li className="sidebar-brand">
+      <a href="/userperforma" id="menu-toggle" style={{marginTop: 20, float: 'right'}}> STATISTICS<i className="fa fa-bars " style={{fontSize: '20px !Important'}} aria-hidden="true" /> 
+      </a></li><a href="#menu-toggle" id="menu-toggle" style={{marginTop: 20, float: 'right'}}>
+    </a><li><a href="#menu-toggle" id="menu-toggle" style={{marginTop: 20, float: 'right'}}>
+      </a><a href="/userperforma"><i className="fa fa-sort-alpha-asc " aria-hidden="true"> </i> <span style={{marginLeft: 10}}>Recommender</span></a>
+    </li>
+    <li>
+      <a href="/platformstats"> <i className="fa fa-play-circle-o " aria-hidden="true"> </i> <span style={{marginLeft: 10}}> Platform Stats</span> </a>
+    </li>
+    <li>
+      <a href="/favourite"> <i className="fa fa-puzzle-piece" aria-hidden="true"> </i> <span style={{marginLeft: 10}}> Favourite Site</span> </a>
+    </li>
+    {/* <li>
+      <a href="/useractivity"> <i className="fa fa-font" aria-hidden="true"> </i> <span style={{marginLeft: 10}}> User Activity</span> </a>
+    </li> */}
+    <li>
+      <a href="/platformactivity"> <i className="fa fa-comment-o" aria-hidden="true"> </i> <span style={{marginLeft: 10}}>Feedback</span> </a>
+    </li>
+  </ul>
+</div>
+
   )
 }
 

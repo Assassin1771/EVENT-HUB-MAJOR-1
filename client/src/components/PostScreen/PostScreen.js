@@ -126,20 +126,8 @@ const PostScreen = ({ history, match }) => {
               className={classes.contentContainer}
             >
               <div>
-                <div className={classes.profile}>
-                  <div style={{ display: "flex" }}>
-                    <Avatar className={classes.avatar}>
-                      {post.name.charAt(0)}
-                    </Avatar>
-                    <Typography className={classes.userName} variant="h6">
-                      {post.name}
-                    </Typography>
-                  </div>
-                  <Typography variant="body2">
-                    {moment(post.createdAt).fromNow()}
-                  </Typography>
-                </div>
-                <hr className={classes.horizontal} />
+              
+              
                 <div id="middle" className={classes.middleContainer}>
                   <Typography
                     className={classes.title}

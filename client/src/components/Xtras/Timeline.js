@@ -14,7 +14,7 @@ const Timeline = () => {
 <Sidenav/>
 <div className="wrapper d-flex flex-column min-vh-100 ">
    
-   <div  style={{marginTop:"-113cm"}} className="body flex-grow-1 px-3">
+   <div  className="body flex-grow-1 px-3">
     <VerticalTimeline>
     <VerticalTimelineElement
       className="vertical-timeline-element--work"

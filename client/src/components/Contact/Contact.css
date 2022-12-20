@@ -1,8 +1,8 @@
 .xcv {
-    height: 16.6cm;
+    height: 22.5cm;
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/concrete-wall-background.jpg) center center fixed;
     background-size: cover;
-    margin-bottom: -14.05cm;
+    margin-bottom: -12.05cm;
    
 }
 
@@ -13,7 +13,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    height:18.28cm;
+    height:0cm;
     background-image: linear-gradient( 150deg, rgba(0, 0, 0, 0.65), transparent);
 }
 

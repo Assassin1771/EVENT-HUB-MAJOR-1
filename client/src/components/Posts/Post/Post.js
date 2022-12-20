@@ -72,12 +72,12 @@ const Post = ({ post, eventName }) => {
         />
       </Link>
       <div className={classes.overlay}>
-        <Typography variant="h6">{post.name}</Typography>
+        {/* <Typography variant="h6">{post.name}</Typography> */}
         <Typography varian t="body2">
-          {moment(post.createdAt).fromNow()}
+          {/* {moment(post.createdAt).fromNow()} */}
         </Typography>
       </div>
-      {user?.result?.email === post?.creator && (
+      {/* {user?.result?.email === post?.creator && (
         <div className={classes.overlay2}>
           <Tooltip title="Edit Post">
             <Button
@@ -89,7 +89,7 @@ const Post = ({ post, eventName }) => {
             </Button>
           </Tooltip>
         </div>
-      )}
+      )} */}
       <div className={classes.postBody}>
         <Typography
           noWrap
@@ -134,7 +134,7 @@ const Post = ({ post, eventName }) => {
               <CommentOutlined fontSize="small" />
             </Button>
           </Link>
-          {user?.result?.email === post?.creator && (
+          {/* {user?.result?.email === post?.creator && (
             <Button
               size="small"
               color="primary"
@@ -142,7 +142,7 @@ const Post = ({ post, eventName }) => {
             >
               <DeleteIcon fontSize="small" /> Delete
             </Button>
-          )}
+          )} */}
         </CardActions>
       </div>
     </Card>

@@ -90,7 +90,7 @@ const Navbar = (props) => {
           <Toolbar className={classes.toolbar}>
             {user ? (
               <div className={classes.profile}>
-                <Tooltip title="Create Post">
+                {/* <Tooltip title="Create Post">
                   <AddCircleIcon
                     onClick={() => {
                       history.push("/");
@@ -99,7 +99,7 @@ const Navbar = (props) => {
                     color="primary"
                     className={classes.addIcon}
                   />
-                </Tooltip>
+                </Tooltip> */}
                 <Tooltip title="Chat">
                   <Link to="/chat">
                     <TelegramIcon

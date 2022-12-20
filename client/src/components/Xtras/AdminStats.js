@@ -62,7 +62,7 @@ import {
   import WorkIcon from '@material-ui/icons/Work';
   import { CCallout, CLink } from '@coreui/react'
   import  DocsCallout  from '../Analytics/DocsCallout.js'
-  import '../Analytics/Analytics.css'
+  // import '../Analytics/Analytics.css'
 
 
   import { CCollapse ,CBadge} from '@coreui/react'
@@ -85,7 +85,7 @@ const AdminStats = () => {
     const dispatch = useDispatch()
   return (
     <div>
-   <Container style={{marginTop:"-92cm"}} className="mb-4" >
+   <div style={{marginTop:"1cm",marginLeft:"5cm"}}  >
    <Container><br/>
    
    <CRow>
@@ -376,7 +376,7 @@ const AdminStats = () => {
            }
          />
        </CCol>
-     </CRow>
+     </CRow><br/><br/>
      <CCardBody>
            <CRow>
              <CCol sm={5}>
@@ -518,25 +518,9 @@ const AdminStats = () => {
            </CRow>
          </CCardFooter>
    </Container>
- <br/> <br/>
-
- <CCol xs={12}>
-       <br />
-      
-         <DocsCallout
-           name="Chart"
-           href="components/chart"
-           content="Content Goes Here"
-         /><br />
- 
-       </CCol>
- <br/>
- 
-
- </Container>
-
+ </div>
     </div>
   )
 }
 
-export default AdminStats
+export default AdminStats;

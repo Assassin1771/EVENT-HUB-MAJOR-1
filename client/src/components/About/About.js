@@ -32,7 +32,7 @@ const About = () => {
             </div>
            
         </section>
-       <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>
+       
         </div>
       
 

@@ -7,8 +7,10 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './Userperforma.css'
 import './Output.css'
-import { CCard } from '@coreui/react';
 
+import {Container, Paper} from "@material-ui/core";
+import { CCard, CCardBody, CCol, CCardHeader, CRow } from '@coreui/react'
+import  DocsCallout  from '../Analytics/DocsCallout.js'
 
 import './User.scss'
 
@@ -68,11 +70,11 @@ const Userperforma = () => {
   }
 
   return (
-    <div>
+    <div class="new5">
     <UserSidenav/>
-    <div className="wrapper d-flex flex-column min-vh-100 ">
-   
-      <div style={{marginTop:"-111cm"}}  className="body flex-grow-1 px-3">
+    <Container style={{marginLeft:"6.5cm"}}  className="wrapper d-flex flex-column min-vh-100 ">
+  
+      <div  className="body flex-grow-1 px-3">
       
      <div className="form_wrapper">
   <div className="form_container">
@@ -80,7 +82,7 @@ const Userperforma = () => {
       <h2>Skill-Set Analysis</h2>
     </div>
     <div className="row clearfix">
-      <div className>
+      <div >
         <form>
           <div className="input_field"> <span><i aria-hidden="true" className="fa fa-envelope" /></span>
             <input type="email" name="email" placeholder="Email" required />
@@ -103,7 +105,7 @@ const Userperforma = () => {
               </div>
             </div>
           </div>
-          <div className="input_field radio_option">
+          <div style={{marginTop:"-3cm"}} className="input_field radio_option">
             <input type="radio" name="radiogroup1" id="rd1" />
             <label style={{color:"black"}}  htmlFor="rd1">Male</label>
             <input type="radio" name="radiogroup1" id="rd2" />
@@ -111,6 +113,7 @@ const Userperforma = () => {
           </div>
           <div className="input_field select_option">
             <select>
+            <option>Interests</option>
               <option>Hiring Chalanges</option>
               <option> Competetive Programming</option>
               <option>Interview Problem</option>
@@ -183,7 +186,7 @@ const Userperforma = () => {
             </div>
           <div className="input_field select_option">
             <select>
-              
+            <option>Most Used Platform</option>
               <option>Codeforces</option>
               <option>Codechef</option>
               <option>Leetcode</option>
@@ -212,7 +215,7 @@ const Userperforma = () => {
 
         
       </div>
-    </div>
+    </Container>
   </div>
   )
 }

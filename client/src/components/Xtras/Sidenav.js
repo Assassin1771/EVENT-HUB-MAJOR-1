@@ -13,9 +13,20 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import {Nav} from "react-bootstrap";
 import { withRouter } from "react-router";
-import './Sidenav.css'
+
 
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
+import Icon, {
+  EllipsisOutlined,
+  GlobalOutlined,
+  HomeOutlined,
+  MessageOutlined,
+  NotificationOutlined,
+  PlaySquareOutlined,
+  ReadOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import "./Sidenav.css";
 
 
 
@@ -24,49 +35,32 @@ const Sidenav = () => {
     const dispatch = useDispatch()
     const unfoldable = useSelector((state) => state.sidebarUnfoldable)
     const sidebarShow = useSelector((state) => state.sidebarShow)
+   
 
   return (
     
-<div style={{height:"114cm"}} class="sidebar sidebar-show">
-  <ul class="sidebar-nav">
-    <li class="nav-title">STATISTICS</li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="nav-icon cil-speedometer"></i> Stats
-      </a>
+   <div id="sidebar-wrapper">
+  <ul className="sidebar-nav" style={{marginLeft: 0}}>
+    <li className="sidebar-brand">
+      <a href="/analytics" id="menu-toggle" style={{marginTop: 20, float: 'right'}}>STATISTICS <i className="fa fa-bars " style={{fontSize: '20px !Important'}} aria-hidden="true" /> 
+      </a></li><a href="#menu-toggle" id="menu-toggle" style={{marginTop: 20, float: 'right'}}>
+    </a><li><a href="#menu-toggle" id="menu-toggle" style={{marginTop: 20, float: 'right'}}>
+      </a><a href="/admin"><i className="fa fa-sort-alpha-asc " aria-hidden="true"> </i> <span style={{marginLeft: 10}}>Stats</span></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/UserStats">
-        <i class="nav-icon cil-speedometer"></i> User Stats
-      </a>
+    <li>
+      <a href="/userstats"> <i className="fa fa-play-circle-o " aria-hidden="true"> </i> <span style={{marginLeft: 10}}> User Stats</span> </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="nav-icon cil-speedometer"></i> Platform Stats
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/timeline">
-        <i class="nav-icon cil-speedometer"></i> Timeline
-      </a>
-    </li>
-    
-    <li class="nav-item mt-auto">
-      <a class="nav-link nav-link-success" href="https://coreui.io">
-        <i class="nav-icon cil-cloud-download"></i> Download CoreUI</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link nav-link-danger" href="https://coreui.io/pro/">
-        <i class="nav-icon cil-layers"></i> Try CoreUI
-        <strong>PRO</strong>
-      </a>
+ 
+    <li>
+      <a href="#"> <i className="fa fa-comment-o" aria-hidden="true"> </i> <span style={{marginLeft: 10}}> Section</span> </a>
     </li>
   </ul>
-  {/* <button class="sidebar-toggler" type="button"></button> */}
 </div>
+
 
   
   )
 }
+
 
 export default Sidenav

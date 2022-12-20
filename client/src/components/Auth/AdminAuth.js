@@ -26,14 +26,11 @@ const AdminAuth = () => {
 
   useEffect(() => {
     if (profile) {
-      history.push("/analytics");
+      history.push("/abc");
     }
   }, []);
 
-  // const switchMode = () => {
-  //   setIsSignup(prevIsSignup => !prevIsSignup);
-  //   setShowPassword(false);
-  // };
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -45,20 +42,10 @@ const AdminAuth = () => {
     }
   };
 
-  // const googleSuccess = async res => {
-  //   const result = res?.profileObj;
-  //   const token = res?.tokenId;
 
-  //   try {
-  //     dispatch({ type: AUTH, data: { result, token } });
-  //     history.push("/analytics");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   
 
-  const googleError = () => alert("Google Sign In was unsuccessful. Try again later");
+
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
